@@ -161,11 +161,15 @@ def display_pot_images(image):
 
 def load_and_display_image():
     global IMAGE
+    global IF_LOAD
     init_parameters()
     load_image()
-    display_image(IMAGE)
-    display_pot_images(IMAGE)
-    update_parameters()
+    if not IF_LOAD:
+        return
+    else:
+        display_image(IMAGE)
+        display_pot_images(IMAGE)
+        update_parameters()
 
 def rotate_image(image):
     global ROTATION_ANGLE
